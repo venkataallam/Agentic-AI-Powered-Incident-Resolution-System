@@ -38,8 +38,10 @@ The platform integrates **IBM Cloud Pak for AIOps**, **GPT OSS 120B via Groq**, 
 ---
 
 ## Architecture Overview
-![Agentic AI Incident Resolution — Production Flow](docs/architecture.png)
 
+
+
+---
 ```
 Hackathon.txt
     │
