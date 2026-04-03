@@ -424,8 +424,8 @@ Agent 2 complete
 ## Architecture Diagrams
 
 See `docs/` for:
-- `architecture.png` — Production agent flow diagram
-- `component_flow.png` — Full component architecture
+- `architecture.png` — Architecture diagram
+- `component_flow.png` — Architecture component flow diagram
 
 See `docs/production_roadmap.md` for the full production evolution plan including CMDB integration, multi-tenant support, multi-OS runbook templates, and automated KB resolved marking.
 
