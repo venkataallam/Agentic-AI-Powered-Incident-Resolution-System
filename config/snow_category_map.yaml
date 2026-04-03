@@ -1,0 +1,26 @@
+# snow_category_map.yaml
+# Maps model-generated category values to exact ServiceNow OOTB category names.
+# Agent 3 loads this to ensure the category field matches what SNOW accepts.
+#
+# Important: category names are case-sensitive and must match your SNOW instance.
+# dev293798 uses the standard OOTB categories below.
+# Update values for your production instance category list.
+
+mappings:
+  Network:        Network
+  network:        Network
+  Application:    Software
+  application:    Software
+  Infrastructure: Hardware
+  infrastructure: Hardware
+  Security:       Network
+  security:       Network
+  Platform:       Software
+  platform:       Software
+  Database:       Software
+  database:       Software
+  Storage:        Hardware
+  storage:        Hardware
+
+# Default when model output doesn't match any key
+default_category: "Inquiry / Help"

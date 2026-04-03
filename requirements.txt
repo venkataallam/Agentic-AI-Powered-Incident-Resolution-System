@@ -1,0 +1,28 @@
+# =============================================================================
+# requirements.txt — Agentic AI-Powered Incident Resolution System
+# Hackathon 2026 - Powered by IBM 
+# =============================================================================
+# Install: pip install -r requirements.txt
+# Python 3.11+ required (uses match statements and type hints)
+
+# HTTP client — used by all three agents for Orchestrate API calls
+requests>=2.31.0
+
+# .env file loading — reads API keys from .env without hardcoding
+python-dotenv>=1.0.0
+
+# YAML config file loading — reads config/*.yaml for assignment groups,
+# device OS map, and SNOW category map
+pyyaml>=6.0.1
+
+# IBM Watson Orchestrate ADK — required for runbook_tool.py and
+# mark_resolved_tool.py (Watson Orchestrate Python tools)
+ibm-watsonx-orchestrate>=0.2.0
+
+# IBM watsonx.ai SDK — required only for --inference-route watsonx
+# (optional if using orchestrate route only)
+ibm-watsonx-ai>=1.0.0
+
+# Paramiko — SSH client used by runbook_tool.py to connect to
+# Cisco Cat8k sandbox and execute IOS XE CLI commands
+paramiko>=3.4.0

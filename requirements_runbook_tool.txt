@@ -1,0 +1,8 @@
+# requirements_runbook_tool.txt
+# WatsonX Orchestrate ADK Python Tool — Runbook Executor
+# Python 3.12 (ADK runtime requirement)
+#
+# Pin minor versions for reproducibility; allow patch updates.
+# Re-run: orchestrate tools import -k python -f runbook_tool.py -r requirements_runbook_tool.txt
+
+paramiko==3.5.1

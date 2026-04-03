@@ -1,0 +1,44 @@
+# device_os_map.yaml
+# Maps CP4AIOps / SevOne "Device Model" strings to normalized OS class.
+# Agent 1 reads this to write topology.device_os into watsonx_payload.json.
+# Agent 2 reads topology.device_os to select the appropriate device rules.
+#
+# Adding a new vendor: add one entry here — no code change required.
+#
+# os_class values:
+#   cisco_iosxe   — Cisco IOS XE (Catalyst, ISR, ASR)
+#   cisco_nxos    — Cisco NX-OS (Nexus)
+#   cisco_iosxr   — Cisco IOS XR (ASR 9000, NCS)
+#   junos         — Juniper (EX, QFX, MX, SRX)
+#   arista_eos    — Arista EOS
+#   nokia_sros    — Nokia SR OS
+#   linux         — Linux host / server (default for non-network)
+#   kubernetes    — Kubernetes / container workload
+#   other         — Unknown / unclassified
+
+mappings:
+  - match: "Cisco Catalyst 8000"
+    os_class: cisco_iosxe
+  - match: "Cisco Catalyst 9000"
+    os_class: cisco_iosxe
+  - match: "Cisco ISR"
+    os_class: cisco_iosxe
+  - match: "Cisco ASR 1000"
+    os_class: cisco_iosxe
+  - match: "Cisco Nexus"
+    os_class: cisco_nxos
+  - match: "Cisco ASR 9000"
+    os_class: cisco_iosxr
+  - match: "Juniper EX"
+    os_class: junos
+  - match: "Juniper MX"
+    os_class: junos
+  - match: "Juniper QFX"
+    os_class: junos
+  - match: "Arista"
+    os_class: arista_eos
+  - match: "Nokia"
+    os_class: nokia_sros
+
+# Default when Device Model is empty or not matched
+default_os_class: linux

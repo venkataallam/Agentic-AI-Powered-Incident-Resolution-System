@@ -1,0 +1,66 @@
+# assignment_groups.yaml
+# Maps CP4AIOps alert layer + incident title keyword to ServiceNow assignment group.
+# Agent 2 loads this to determine the correct group for each incident.
+#
+# Rules are evaluated top-to-bottom. First match wins.
+# keyword: null means "match any title in this layer" (catch-all).
+#
+# To customize for your environment: change the assignment_group values.
+# To add new categories: add rules here — no code change required.
+
+rules:
+  # Network layer
+  - layer: network
+    keyword: null
+    assignment_group: Network Operations
+
+  # Infrastructure layer
+  - layer: infrastructure
+    keyword: null
+    assignment_group: Infrastructure Team
+
+  # Platform / Kubernetes layer
+  - layer: platform
+    keyword: null
+    assignment_group: Platform Engineering
+
+  # Application layer — authentication domain
+  - layer: application
+    keyword: auth
+    assignment_group: Platform Team
+  - layer: application
+    keyword: ldap
+    assignment_group: Platform Team
+  - layer: application
+    keyword: login
+    assignment_group: Platform Team
+  - layer: application
+    keyword: identity
+    assignment_group: Platform Team
+
+  # Application layer — payment domain
+  - layer: application
+    keyword: payment
+    assignment_group: Payments Platform Team
+  - layer: application
+    keyword: database
+    assignment_group: Payments Platform Team
+  - layer: application
+    keyword: db
+    assignment_group: Payments Platform Team
+  - layer: application
+    keyword: transaction
+    assignment_group: Payments Platform Team
+
+  # Application layer — catch-all
+  - layer: application
+    keyword: null
+    assignment_group: Application Support
+
+  # Security
+  - layer: security
+    keyword: null
+    assignment_group: Security Operations
+
+# Fallback if no rule matches
+default_group: IT Operations

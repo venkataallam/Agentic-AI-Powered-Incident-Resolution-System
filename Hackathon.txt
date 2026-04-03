@@ -1,0 +1,1757 @@
+CP4AIOps Raw export
+
+User case 1: 
+========================================================================
+Now we have 4 complete alerts:
+
+Alert	Event	Probable Cause Rank
+1	SNMP Polling Failure	2
+2	Interface Down	1
+3	Packet Loss	4
+4	High Latency	5
+
+These 4 alerts can now be correlated into 1 CP4AIOps incident with child alert references, timeline, and causal ordering.
+=======================================================================
+
+
+Alerts: 1
+===========================
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Commercial, name=DevNet-Cat8k-RT}-SNMP Availability-",
+  "details": {
+    "Customer": "Commercial",
+    "Check": "Device SNMP availability",
+    "Cluster Name": "COM NMS",
+    "SevOne Alert ID": "200101",
+    "SevOne Alert Type": "system",
+    "Occurrences": "1",
+    "Device Id": "9001",
+	"Device Model": "Cisco Catalyst 8000",
+    "Device IP": "10.52.220.11",
+    "Device Name": "DevNet-Cat8k-RT",
+    "Group Name": "CORE",
+    "Object Name": "SNMP Availability",
+    "ObjectID": "14001",
+    "Policy Name": "Device SNMP availability",
+    "Threshold Name": "SNMP Polling Failure"
+  },
+  "EnrichmentDetails": {"ImpactInvOper": "1"},
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-14T09:00:10.000Z",
+  "id": "alert-router-001",
+  "insights": [
+    {
+      "id": "insight-router-001",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {"policyId": "policy-router-001", "subsumedUnions": []}
+    },
+    {
+      "id": "event-occurrence",
+      "type": "aiops.ibm.com/insight-type/deduplication-details",
+      "details": {"lastProcessedEventOccurrenceTime": "2026-03-14T09:00:10Z"}
+    },
+    {
+      "id": "alert-router-001",
+      "type": "aiops.ibm.com/insight-type/golden-signal",
+      "details": {"goldenSignal": "availability", "typeGoldenSignal": "symptom"}
+    },
+    {
+      "id": "insight-router-001-pc",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {"id": "inc-router-001", "rank": 2, "time": 0}
+    },
+    {
+      "id": "DevNet-Cat8k-RT#causal",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {"policyId": "policy-router-causal-001"}
+    },
+    {
+      "id": "CORE_NETWORK_GROUP",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {"name": "CORE_NETWORK_GROUP", "tags": ["SevOne_Template"], "entityTypes": ["completeGroup","network"]}
+    },
+    {
+      "id": "router-resource",
+      "type": "aiops.ibm.com/insight-type/topology/resource",
+      "details": {"name": "DevNet-Cat8k-RT","uniqueId":"deviceId-9001"}
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-14T09:00:10.000Z",
+  "lastStateChangeTime": "2026-03-14T09:00:10.000Z",
+  "owner": "-",
+  "relatedStoryIds": ["inc-router-001"],
+  "resource": {"name": "DevNet-Cat8k-RT","Customer":"Commercial"},
+  "sender": {"type":"Webhook Connector","CP4AIOPSEnrichTTFlag":"1","name":"IBM SevOne"},
+  "severity": 5,
+  "signature": "{Customer=Commercial, name=DevNet-Cat8k-RT}-SNMP Availability-",
+  "state": "open",
+  "summary": "SNMP polling failed for DevNet-Cat8k-RT",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+  "type": {"classification":"SNMP Availability","eventType":"problem"}
+}
+
+--------------------------Usecase 1: Alert 2-------------------------------
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Commercial, name=DevNet-Cat8k-RT}-Interface Down-",
+  "details": {
+    "Customer": "Commercial",
+    "Check": "Interface Status",
+    "Cluster Name": "COM NMS",
+    "SevOne Alert ID": "200102",
+    "SevOne Alert Type": "system",
+    "Occurrences": "1",
+    "Device Id": "9001",
+	"Device Model": "Cisco Catalyst 8000",
+    "Device IP": "10.52.220.11",
+    "Device Name": "DevNet-Cat8k-RT",
+    "Group Name": "CORE",
+    "Object Name": "GigabitEthernet3",
+    "ObjectID": "14002",
+    "Policy Name": "Interface Status",
+    "Threshold Name": "Interface Down"
+  },
+  "EnrichmentDetails": {"ImpactInvOper": "1"},
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-14T09:00:00.000Z",
+  "id": "alert-router-002",
+  "insights": [
+    {
+      "id": "insight-router-002",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {"policyId": "policy-router-002","subsumedUnions":[]}
+    },
+    {
+      "id":"event-occurrence",
+      "type":"aiops.ibm.com/insight-type/deduplication-details",
+      "details":{"lastProcessedEventOccurrenceTime":"2026-03-14T09:00:00Z"}
+    },
+    {
+      "id":"alert-router-002",
+      "type":"aiops.ibm.com/insight-type/golden-signal",
+      "details":{"goldenSignal":"availability","typeGoldenSignal":"cause"}
+    },
+    {
+      "id":"insight-router-002-pc",
+      "type":"aiops.ibm.com/insight-type/probable-cause",
+      "source":"aiops.ibm.com/insight-source/probable-cause",
+      "details":{"id":"inc-router-001","rank":1,"time":0}
+    },
+    {
+      "id":"DevNet-Cat8k-RT#causal",
+      "type":"aiops.ibm.com/insight-type/relationship/causal",
+      "source":"aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details":{"policyId":"policy-router-causal-002"}
+    },
+    {
+      "id":"CORE_NETWORK_GROUP",
+      "type":"aiops.ibm.com/insight-type/topology/group",
+      "details":{"name":"CORE_NETWORK_GROUP","tags":["SevOne_Template"],"entityTypes":["completeGroup","network"]}
+    },
+    {
+      "id":"router-resource",
+      "type":"aiops.ibm.com/insight-type/topology/resource",
+      "details":{"name":"DevNet-Cat8k-RT","uniqueId":"deviceId-9001"}
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-14T09:00:00.000Z",
+  "lastStateChangeTime": "2026-03-14T09:00:00.000Z",
+  "owner": "-",
+  "relatedStoryIds":["inc-router-001"],
+  "resource":{"name":"DevNet-Cat8k-RT","Customer":"Commercial"},
+  "sender":{"type":"Webhook Connector","CP4AIOPSEnrichTTFlag":"1","name":"IBM SevOne"},
+  "severity": 6,
+  "signature":"{Customer=Commercial, name=DevNet-Cat8k-RT}-Interface Down-",
+  "state":"open",
+  "summary":"Interface GigabitEthernet3 is down on DevNet-Cat8k-RT",
+  "suppressed": false,
+  "team": "-",
+  "tenantId":"cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+  "type":{"classification":"Interface Down","eventType":"problem"}
+}
+--------------------------------Use case 1: Alert 3----------------
+
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Commercial, name=DevNet-Cat8k-RT}-Packet Loss-",
+  "details": {
+    "Customer": "Commercial",
+    "Check": "Interface Packet Loss",
+    "Cluster Name": "COM NMS",
+    "SevOne Alert ID": "200104",
+    "SevOne Alert Type": "system",
+    "Occurrences": "1",
+    "Device Id": "9001",
+	"Device Model": "Cisco Catalyst 8000",
+    "Device IP": "10.52.220.11",
+    "Device Name": "DevNet-Cat8k-RT",
+    "Group Name": "CORE",
+    "Object Name": "GigabitEthernet3",
+    "ObjectID": "14004",
+    "Policy Name": "Interface Packet Loss",
+    "Threshold Name": "Packet Loss Threshold"
+  },
+  "EnrichmentDetails": {"ImpactInvOper": "1"},
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-14T09:00:30.000Z",
+  "id": "alert-router-004",
+  "insights": [
+    {
+      "id": "insight-router-004",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {"policyId":"policy-router-004","subsumedUnions":[]}
+    },
+    {
+      "id":"event-occurrence",
+      "type":"aiops.ibm.com/insight-type/deduplication-details",
+      "details":{"lastProcessedEventOccurrenceTime":"2026-03-14T09:00:30Z"}
+    },
+    {
+      "id":"alert-router-004",
+      "type":"aiops.ibm.com/insight-type/golden-signal",
+      "details":{"goldenSignal":"latency","typeGoldenSignal":"symptom"}
+    },
+    {
+      "id":"insight-router-004-pc",
+      "type":"aiops.ibm.com/insight-type/probable-cause",
+      "source":"aiops.ibm.com/insight-source/probable-cause",
+      "details":{"id":"inc-router-001","rank":4,"time":0}
+    },
+    {
+      "id":"DevNet-Cat8k-RT#causal",
+      "type":"aiops.ibm.com/insight-type/relationship/causal",
+      "source":"aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details":{"policyId":"policy-router-causal-004"}
+    },
+    {
+      "id":"CORE_NETWORK_GROUP",
+      "type":"aiops.ibm.com/insight-type/topology/group",
+      "details":{"name":"CORE_NETWORK_GROUP","tags":["SevOne_Template"],"entityTypes":["completeGroup","network"]}
+    },
+    {
+      "id":"router-resource",
+      "type":"aiops.ibm.com/insight-type/topology/resource",
+      "details":{"name":"DevNet-Cat8k-RT","uniqueId":"deviceId-9001"}
+    }
+  ],
+  "lastOccurrenceTime":"2026-03-14T09:00:30.000Z",
+  "lastStateChangeTime":"2026-03-14T09:00:30.000Z",
+  "owner":"-",
+  "relatedStoryIds":["inc-router-001"],
+  "resource":{"name":"DevNet-Cat8k-RT","Customer":"Commercial"},
+  "sender":{"type":"Webhook Connector","CP4AIOPSEnrichTTFlag":"1","name":"IBM SevOne"},
+  "severity":4,
+  "signature":"{Customer=Commercial, name=DevNet-Cat8k-RT}-Packet Loss-",
+  "state":"open",
+  "summary":"Packet loss detected on interface GigabitEthernet3",
+  "suppressed":false,
+  "team":"-",
+  "tenantId":"cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+  "type":{"classification":"Packet Loss","eventType":"problem"}
+}
+--------------------Use case 1 Alert 4 -----------------
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Commercial, name=DevNet-Cat8k-RT}-High Latency-",
+  "details": {
+    "Customer": "Commercial",
+    "Check": "Interface Latency",
+    "Cluster Name": "COM NMS",
+    "SevOne Alert ID": "200105",
+    "SevOne Alert Type": "system",
+    "Occurrences": "1",
+    "Device Id": "9001",
+	"Device Model": "Cisco Catalyst 8000",
+    "Device IP": "10.52.220.11",
+    "Device Name": "DevNet-Cat8k-RT",
+    "Group Name": "CORE",
+    "Object Name": "GigabitEthernet3",
+    "ObjectID": "14005",
+    "Policy Name": "Interface Latency",
+    "Threshold Name": "High Latency Threshold"
+  },
+  "EnrichmentDetails": {"ImpactInvOper": "1"},
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-14T09:00:40.000Z",
+  "id": "alert-router-005",
+  "insights": [
+    {
+      "id": "insight-router-005",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details":{"policyId":"policy-router-005","subsumedUnions":[]}
+    },
+    {
+      "id":"event-occurrence",
+      "type":"aiops.ibm.com/insight-type/deduplication-details",
+      "details":{"lastProcessedEventOccurrenceTime":"2026-03-14T09:00:40Z"}
+    },
+    {
+      "id":"alert-router-005",
+      "type":"aiops.ibm.com/insight-type/golden-signal",
+      "details":{"goldenSignal":"latency","typeGoldenSignal":"symptom"}
+    },
+    {
+      "id":"insight-router-005-pc",
+      "type":"aiops.ibm.com/insight-type/probable-cause",
+      "source":"aiops.ibm.com/insight-source/probable-cause",
+      "details":{"id":"inc-router-001","rank":5,"time":0}
+    },
+    {
+      "id":"DevNet-Cat8k-RT#causal",
+      "type":"aiops.ibm.com/insight-type/relationship/causal",
+      "source":"aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details":{"policyId":"policy-router-causal-005"}
+    },
+    {
+      "id":"CORE_NETWORK_GROUP",
+      "type":"aiops.ibm.com/insight-type/topology/group",
+      "details":{"name":"CORE_NETWORK_GROUP","tags":["SevOne_Template"],"entityTypes":["completeGroup","network"]}
+    },
+    {
+      "id":"router-resource",
+      "type":"aiops.ibm.com/insight-type/topology/resource",
+      "details":{"name":"DevNet-Cat8k-RT","uniqueId":"deviceId-9001"}
+    }
+  ],
+  "lastOccurrenceTime":"2026-03-14T09:00:40.000Z",
+  "lastStateChangeTime":"2026-03-14T09:00:40.000Z",
+  "owner":"-",
+  "relatedStoryIds":["inc-router-001"],
+  "resource":{"name":"DevNet-Cat8k-RT","Customer":"Commercial"},
+  "sender":{"type":"Webhook Connector","CP4AIOPSEnrichTTFlag":"1","name":"IBM SevOne"},
+  "severity":4,
+  "signature":"{Customer=Commercial, name=DevNet-Cat8k-RT}-High Latency-",
+  "state":"open",
+  "summary":"High latency detected on interface GigabitEthernet3",
+  "suppressed":false,
+  "team":"-",
+  "tenantId":"cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+  "type":{"classification":"High Latency","eventType":"problem"}
+}
+
+---------------Use case 1: Incident 1--------------------------------------
+{
+  "id": "inc-router-001",
+  "state": "unassigned",
+  "priority": 1,
+  "title": "DevNet-Cat8k-RT Network Service Degradation",
+  "createdBy": "system",
+  "lastChangedTime": "2026-03-14T09:00:40.000Z",
+  "description": "Multiple network issues detected on DevNet-Cat8k-RT, including SNMP polling failure, interface down, packet loss, and high latency.",
+  "owner": "-",
+  "team": "-",
+  "insights": [
+    {
+      "id": "insight-inc-001-union",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "policy-inc-001",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "insight-inc-001-pc-1",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {"id": "alert-router-001", "rank": 2, "time": 0}
+    },
+    {
+      "id": "insight-inc-001-pc-2",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {"id": "alert-router-002", "rank": 1, "time": 0}
+    },
+    {
+      "id": "insight-inc-001-pc-4",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {"id": "alert-router-004", "rank": 4, "time": 0}
+    },
+    {
+      "id": "insight-inc-001-pc-5",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {"id": "alert-router-005", "rank": 5, "time": 0}
+    },
+    {
+      "id": "DevNet-Cat8k-RT#causal",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {"policyId":"policy-inc-causal-001"}
+    },
+    {
+      "id": "CORE_NETWORK_GROUP",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {"name":"CORE_NETWORK_GROUP","tags":["SevOne_Template"],"entityTypes":["completeGroup","network"]}
+    }
+  ],
+  "alertIds": [
+    "alert-router-001",
+    "alert-router-002",
+    "alert-router-004",
+    "alert-router-005"
+  ],
+  "contextualAlertIds": [],
+  "createdTime": "2026-03-14T09:00:00.000Z",
+  "timeline": [
+    {
+      "id": "timeline-001",
+      "createdTime": "2026-03-14T09:00:00.000Z",
+      "content": {},
+      "type": "created"
+    },
+    {
+      "id": "timeline-alert-001",
+      "createdTime": "2026-03-14T09:00:10.000Z",
+      "content": {"alertid":"alert-router-001","timeAdded":"2026-03-14T09:00:10.000Z","summary":"SNMP polling failed for DevNet-Cat8k-RT","severity":5},
+      "type":"alertadded"
+    },
+    {
+      "id": "timeline-alert-002",
+      "createdTime": "2026-03-14T09:00:00.000Z",
+      "content": {"alertid":"alert-router-002","timeAdded":"2026-03-14T09:00:00.000Z","summary":"Interface GigabitEthernet3 is down on DevNet-Cat8k-RT","severity":6},
+      "type":"alertadded"
+    },
+    {
+      "id": "timeline-alert-004",
+      "createdTime": "2026-03-14T09:00:30.000Z",
+      "content": {"alertid":"alert-router-004","timeAdded":"2026-03-14T09:00:30.000Z","summary":"Packet loss detected on interface GigabitEthernet3","severity":4},
+      "type":"alertadded"
+    },
+    {
+      "id": "timeline-alert-005",
+      "createdTime": "2026-03-14T09:00:40.000Z",
+      "content": {"alertid":"alert-router-005","timeAdded":"2026-03-14T09:00:40.000Z","summary":"High latency detected on interface GigabitEthernet3","severity":4},
+      "type":"alertadded"
+    }
+  ]
+}
+==============================Use 1 End====================
+==============================Use case 2==================================================================================
+
+Use Case 2
+Authentication Service Failure Causing Login Outage
+Scenario
+
+A customer login service running in Kubernetes begins failing due to LDAP authentication errors.
+
+Sequence of events:
+
+LDAP authentication failures begin.
+
+Login API error rate increases.
+
+Authentication pod CPU spikes due to retry loops.
+
+User login transactions fail.
+
+Application health check fails.
+
+These alerts occur within a short time window and are correlated into one incident.
+
+Probable cause ranking:
+
+Rank	Alert
+1	LDAP Authentication Failure
+2	Login API Errors
+3	Auth Service CPU High
+4	User Login Failure Spike
+5	Auth Service Health Check Failed
+
+----------------------------------------User case 2 Alert 1-------------------------------------------------
+{
+  "acknowledged": false,
+  "deduplicationKey": "{Customer=Retail, name=auth-service}-LDAP Authentication Failure-",
+  "details": {
+    "Customer": "Retail",
+    "Check": "LDAP Authentication",
+    "Cluster Name": "PROD-K8S",
+    "Alert Source": "Application Monitoring",
+    "Occurrences": "1",
+    "Service Name": "auth-service",
+    "Namespace": "production",
+    "Component": "ldap-authenticator",
+    "Policy Name": "LDAP Authentication Monitor",
+    "Threshold Name": "LDAP Authentication Failure"
+  },
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-15T10:00:00.000Z",
+  "id": "alert-auth-001",
+  "insights": [
+    {
+      "id": "auth-union-001",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "auth-policy-001",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "alert-auth-001",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "inc-auth-001",
+        "rank": 1,
+        "time": 0
+      }
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-15T10:00:00.000Z",
+  "lastStateChangeTime": "2026-03-15T10:00:00.000Z",
+  "links": [],
+  "owner": "-",
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": ["inc-auth-001"],
+  "resource": {
+    "name": "auth-service",
+    "Customer": "Retail"
+  },
+  "sender": {
+    "type": "Webhook Connector",
+    "name": "Application Monitoring"
+  },
+  "severity": 6,
+  "signature": "{Customer=Retail, name=auth-service}-LDAP Authentication Failure-",
+  "state": "open",
+  "summary": "LDAP authentication failures detected in auth-service",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+  "type": {
+    "classification": "LDAP Authentication Failure",
+    "eventType": "problem"
+  }
+}
+----------------------------Use case 2 Alert 2-------------------------------------
+{
+"id":"alert-auth-002",
+"acknowledged":false,
+"deduplicationKey":"{Customer=Retail, name=auth-service}-Login API Errors-",
+"details":{
+"Customer":"Retail",
+"Check":"Login API Error Rate",
+"Cluster Name":"PROD-K8S",
+"Alert Source":"Application Monitoring",
+"Occurrences":"1",
+"Service Name":"auth-service",
+"Namespace":"production",
+"Component":"login-api",
+"Policy Name":"Login API Monitor",
+"Threshold Name":"Login API Errors"
+},
+"EnrichmentDetails":{"ImpactInvOper":"1"},
+"eventCount":1,
+"expirySeconds":0,
+"firstOccurrenceTime":"2026-03-15T10:00:05.000Z",
+"insights":[
+{
+"id":"auth-union-002",
+"type":"aiops.ibm.com/insight-type/relationship/causal-union",
+"details":{"policyId":"auth-policy-001","subsumedUnions":[]}
+},
+{
+"id":"alert-auth-002",
+"type":"aiops.ibm.com/insight-type/probable-cause",
+"source":"aiops.ibm.com/insight-source/probable-cause",
+"details":{"id":"inc-auth-001","rank":2,"time":0}
+}
+],
+"lastOccurrenceTime":"2026-03-15T10:00:05.000Z",
+"lastStateChangeTime":"2026-03-15T10:00:05.000Z",
+"links":[],
+"owner":"-",
+"relatedContextualStoryIds":[],
+"relatedStoryIds":["inc-auth-001"],
+"resource":{"name":"auth-service","Customer":"Retail"},
+"sender":{"type":"Webhook Connector","name":"Application Monitoring"},
+"severity":5,
+"signature":"{Customer=Retail, name=auth-service}-Login API Errors-",
+"state":"open",
+"summary":"Login API error rate increased",
+"suppressed":false,
+"team":"-",
+"tenantId":"cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+"type":{"classification":"Login API Errors","eventType":"problem"}
+}
+-------------------------------Use case 2 Alert 3---------------------------------------
+{
+"id":"alert-auth-003",
+"acknowledged":false,
+"deduplicationKey":"{Customer=Retail, name=auth-service}-CPU High-",
+"details":{
+"Customer":"Retail",
+"Check":"CPU Utilization",
+"Cluster Name":"PROD-K8S",
+"Alert Source":"Kubernetes Monitoring",
+"Occurrences":"1",
+"Service Name":"auth-service",
+"Namespace":"production",
+"Component":"auth-pod",
+"Policy Name":"CPU Utilization Monitor",
+"Threshold Name":"CPU High"
+},
+"EnrichmentDetails":{"ImpactInvOper":"1"},
+"eventCount":1,
+"expirySeconds":0,
+"firstOccurrenceTime":"2026-03-15T10:00:08.000Z",
+"insights":[
+{
+"id":"auth-union-003",
+"type":"aiops.ibm.com/insight-type/relationship/causal-union",
+"details":{"policyId":"auth-policy-001","subsumedUnions":[]}
+},
+{
+"id":"alert-auth-003",
+"type":"aiops.ibm.com/insight-type/probable-cause",
+"source":"aiops.ibm.com/insight-source/probable-cause",
+"details":{"id":"inc-auth-001","rank":3,"time":0}
+}
+],
+"lastOccurrenceTime":"2026-03-15T10:00:08.000Z",
+"lastStateChangeTime":"2026-03-15T10:00:08.000Z",
+"links":[],
+"owner":"-",
+"relatedContextualStoryIds":[],
+"relatedStoryIds":["inc-auth-001"],
+"resource":{"name":"auth-service","Customer":"Retail"},
+"sender":{"type":"Webhook Connector","name":"Kubernetes Monitoring"},
+"severity":5,
+"signature":"{Customer=Retail, name=auth-service}-CPU High-",
+"state":"open",
+"summary":"Authentication service CPU utilization exceeded threshold",
+"suppressed":false,
+"team":"-",
+"tenantId":"cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+"type":{"classification":"CPU High","eventType":"problem"}
+}
+-------------------------------Use case 2 Alert 4---------------------------
+{
+  "id": "alert-auth-004",
+  "acknowledged": false,
+  "state": "open",
+  "severity": 4,
+  "summary": "Spike in user login failures detected for auth-service",
+  "signature": "{Customer=Retail,name=auth-service}-User Login Failures-",
+  "deduplicationKey": "{Customer=Retail,name=auth-service}-User Login Failures-",
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-15T10:00:12.000Z",
+  "lastOccurrenceTime": "2026-03-15T10:00:12.000Z",
+  "lastStateChangeTime": "2026-03-15T10:00:12.000Z",
+  "suppressed": false,
+  "owner": "-",
+  "team": "-",
+  "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+
+  "details": {
+    "Customer": "Retail",
+    "Service Name": "auth-service",
+    "Namespace": "production",
+    "Component": "login-service",
+    "Cluster Name": "PROD-K8S",
+    "Alert Source": "Application Monitoring",
+    "Check": "User Login Transaction Failure Rate",
+    "Policy Name": "User Login Monitor",
+    "Threshold Name": "Login Failure Spike",
+    "Occurrences": "1"
+  },
+
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+
+  "resource": {
+    "name": "auth-service",
+    "Customer": "Retail"
+  },
+
+  "sender": {
+    "type": "Webhook Connector",
+    "name": "Application Monitoring"
+  },
+
+  "links": [],
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": ["inc-auth-001"],
+
+  "insights": [
+    {
+      "id": "auth-union-001",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "auth-correlation-policy",
+        "unionId": "auth-union-001",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "auth-temporal-004",
+      "type": "aiops.ibm.com/insight-type/relationship/temporal",
+      "details": {
+        "window": "120s"
+      }
+    },
+    {
+      "id": "alert-auth-004",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "inc-auth-001",
+        "rank": 4,
+        "time": 12
+      }
+    }
+  ],
+
+  "type": {
+    "classification": "User Login Failures",
+    "eventType": "problem"
+  }
+}
+--------------------------------use case 2, Alert 5----------------------------
+{
+  "id": "alert-auth-005",
+  "acknowledged": false,
+  "state": "open",
+  "severity": 4,
+  "summary": "Authentication service health check failed",
+  "signature": "{Customer=Retail,name=auth-service}-Health Check Failure-",
+  "deduplicationKey": "{Customer=Retail,name=auth-service}-Health Check Failure-",
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-15T10:00:15.000Z",
+  "lastOccurrenceTime": "2026-03-15T10:00:15.000Z",
+  "lastStateChangeTime": "2026-03-15T10:00:15.000Z",
+  "suppressed": false,
+  "owner": "-",
+  "team": "-",
+  "tenantId": "cfd95b7e-3bc7-4006-a4a8-a73a79c71255",
+
+  "details": {
+    "Customer": "Retail",
+    "Service Name": "auth-service",
+    "Namespace": "production",
+    "Component": "service-endpoint",
+    "Cluster Name": "PROD-K8S",
+    "Alert Source": "Kubernetes Monitoring",
+    "Check": "Service Health Endpoint",
+    "Policy Name": "Service Health Monitor",
+    "Threshold Name": "Health Check Failure",
+    "Occurrences": "1"
+  },
+
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+
+  "resource": {
+    "name": "auth-service",
+    "Customer": "Retail"
+  },
+
+  "sender": {
+    "type": "Webhook Connector",
+    "name": "Kubernetes Monitoring"
+  },
+
+  "links": [],
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": ["inc-auth-001"],
+
+  "insights": [
+    {
+      "id": "auth-union-001",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "auth-correlation-policy",
+        "unionId": "auth-union-001",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "auth-temporal-005",
+      "type": "aiops.ibm.com/insight-type/relationship/temporal",
+      "details": {
+        "window": "120s"
+      }
+    },
+    {
+      "id": "alert-auth-005",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "inc-auth-001",
+        "rank": 5,
+        "time": 15
+      }
+    }
+  ],
+
+  "type": {
+    "classification": "Service Health Check Failure",
+    "eventType": "problem"
+  }
+}
+-----------------------------------------use case 2: Incident------------------------------
+{
+"id":"inc-auth-001",
+"title":"Authentication Service Login Failures",
+"description":"Multiple alerts detected for auth-service indicating authentication failure and user login disruption.",
+"state":"unassigned",
+"priority":2,
+"createdBy":"system",
+"owner":"-",
+"team":"-",
+
+"createdTime":"2026-03-15T10:00:00.000Z",
+"lastChangedTime":"2026-03-15T10:00:15.000Z",
+
+"alertIds":[
+"alert-auth-001",
+"alert-auth-002",
+"alert-auth-003",
+"alert-auth-004",
+"alert-auth-005"
+],
+
+"contextualAlertIds":[],
+
+"insights":[
+{
+"id":"auth-union-001",
+"type":"aiops.ibm.com/insight-type/relationship/causal-union",
+"details":{
+"policyId":"auth-correlation-policy",
+"unionId":"auth-union-001"
+}
+},
+{
+"id":"auth-root-cause",
+"type":"aiops.ibm.com/insight-type/probable-cause",
+"source":"aiops.ibm.com/insight-source/probable-cause",
+"details":{
+"id":"alert-auth-001",
+"rank":1
+}
+}
+],
+
+"timeline":[
+{"id":"timeline-1","createdTime":"2026-03-15T10:00:00Z","type":"created","content":{}},
+{"id":"timeline-2","createdTime":"2026-03-15T10:00:00Z","type":"alertadded","content":{"alertid":"alert-auth-001"}},
+{"id":"timeline-3","createdTime":"2026-03-15T10:00:05Z","type":"alertadded","content":{"alertid":"alert-auth-002"}},
+{"id":"timeline-4","createdTime":"2026-03-15T10:00:08Z","type":"alertadded","content":{"alertid":"alert-auth-003"}},
+{"id":"timeline-5","createdTime":"2026-03-15T10:00:12Z","type":"alertadded","content":{"alertid":"alert-auth-004"}},
+{"id":"timeline-6","createdTime":"2026-03-15T10:00:15Z","type":"alertadded","content":{"alertid":"alert-auth-005"}}
+]
+}
+------------------------------------Use case 2 END--------------------------------
+------------------------------------Use case 3 Begin-------------------------------
+=====================================================================================================================
+Use Case 3 — Payment API Latency Outage
+
+Scenario: A critical microservice, payment-api, experiences high latency due to database contention. This cascades to payment-service failures, payment-db slow queries, and eventually API gateway timeouts. Kubernetes pods handling payment-service also become unhealthy due to CPU saturation.
+
+Topology Chain (dependency graph):
+
+payment-db
+     ↓
+payment-service (pods)
+     ↓
+payment-api
+     ↓
+api-gateway
+Alerts for Use Case 2
+
+We will generate 5 alerts:
+
+payment-db high latency
+
+payment-service pod CPU saturation
+
+payment-service pod unhealthy
+
+payment-api 504 Gateway Timeout
+
+api-gateway high response time
+
+All alerts include full details, enrichment, insights, resource mapping, sender info, relatedStoryIds, and ISO timestamps.
+
+Failure propagation:
+
+1️⃣ Database slow query latency
+2️⃣ payment-service pod CPU spike
+3️⃣ payment-service pod crash loop
+4️⃣ payment-api request timeout
+5️⃣ api-gateway response delay
+
+Root cause:
+
+payment-db latency
+
+-----------------------------------------------------------------------------------------------------------------------------
+--------------------------------------Use case 3 Alert 1-------------------------------------------------
+{
+  "acknowledged": false,
+  "deduplicationKey": "{Customer=Enterprise, name=payment-db}-Database Latency-",
+  "details": {
+    "Customer": "Enterprise",
+    "Check": "Database Query Latency",
+    "Cluster Name": "PAYMENT K8S",
+    "SevOne Alert ID": "210001",
+    "SevOne Alert Type": "database",
+    "Occurrences": "1",
+    "Device Id": "9001",
+    "Device IP": "10.60.1.10",
+    "Device Name": "payment-db",
+    "Group Name": "PAYMENT_DB",
+    "Object Name": "Query Latency",
+    "ObjectID": "70101",
+    "Policy Name": "Database Latency",
+    "Threshold Name": "Query Latency > 8 seconds"
+  },
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-16T10:00:00.000Z",
+  "id": "alert-payment-201",
+  "insights": [
+    {
+      "id": "union-201",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "payment-causal-policy",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "event-occurrence",
+      "type": "aiops.ibm.com/insight-type/deduplication-details",
+      "details": {
+        "lastProcessedEventOccurrenceTime": "2026-03-16T10:00:00Z"
+      }
+    },
+    {
+      "id": "golden-201",
+      "type": "aiops.ibm.com/insight-type/golden-signal",
+      "details": {
+        "goldenSignal": "latency",
+        "typeGoldenSignal": "cause"
+      }
+    },
+    {
+      "id": "pc-201",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "story-payment-002",
+        "rank": 1,
+        "time": 0
+      }
+    },
+    {
+      "id": "payment-db#c1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-cluster#1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/topological-group",
+      "details": {
+        "name": "PAYMENT_CLUSTER",
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-cluster",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {
+        "name": "PAYMENT_CLUSTER",
+        "tags": [
+          "Kubernetes"
+        ],
+        "entityTypes": [
+          "completeGroup",
+          "application"
+        ]
+      }
+    },
+    {
+      "id": "payment-db-status",
+      "type": "aiops.ibm.com/insight-type/topology/statusId",
+      "details": {}
+    },
+    {
+      "id": "payment-db-resource",
+      "type": "aiops.ibm.com/insight-type/topology/resource",
+      "details": {
+        "name": "payment-db",
+        "uniqueId": "deviceId-9001"
+      }
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-16T10:00:00.000Z",
+  "lastStateChangeTime": "2026-03-16T10:00:10.000Z",
+  "links": [],
+  "owner": "-",
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": [
+    "story-payment-002"
+  ],
+  "resource": {
+    "name": "payment-db",
+    "Customer": "Enterprise"
+  },
+  "sender": {
+    "type": "Webhook Connector",
+    "CP4AIOPSEnrichTTFlag": "1",
+    "name": "Database Monitoring"
+  },
+  "severity": 6,
+  "signature": "{Customer=Enterprise, name=payment-db}-Database Latency-",
+  "state": "open",
+  "summary": "Payment database query latency exceeded 8 seconds",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "tenant-payment",
+  "type": {
+    "classification": "Database Latency",
+    "eventType": "problem"
+  }
+}
+-------------------------------Use case 3 Alert 2------------------------
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Enterprise, name=payment-service-pod-1}-Pod CPU Saturation-",
+  "details": {
+    "Customer": "Enterprise",
+    "Check": "Kubernetes Pod CPU Utilization",
+    "Cluster Name": "PAYMENT K8S",
+    "SevOne Alert ID": "210002",
+    "SevOne Alert Type": "kubernetes",
+    "Occurrences": "1",
+    "Device Id": "9101",
+    "Device IP": "10.60.2.21",
+    "Device Name": "payment-service-pod-1",
+    "Group Name": "PAYMENT_SERVICE",
+    "Object Name": "CPU Utilization",
+    "ObjectID": "70102",
+    "Policy Name": "Pod CPU Utilization",
+    "Threshold Name": "CPU Utilization > 90 Percent"
+  },
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-16T10:01:10.000Z",
+  "id": "alert-payment-202",
+  "insights": [
+    {
+      "id": "00000201-a1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "payment-causal-policy",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "event-occurrence",
+      "type": "aiops.ibm.com/insight-type/deduplication-details",
+      "details": {
+        "lastProcessedEventOccurrenceTime": "2026-03-16T10:01:10Z"
+      }
+    },
+    {
+      "id": "alert-payment-202",
+      "type": "aiops.ibm.com/insight-type/golden-signal",
+      "details": {
+        "goldenSignal": "saturation",
+        "typeGoldenSignal": "symptom"
+      }
+    },
+    {
+      "id": "alert-payment-202",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "story-payment-002",
+        "rank": 2,
+        "time": 70
+      }
+    },
+    {
+      "id": "payment-service-pod-1#c1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-service-group#t1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/topological-group",
+      "details": {
+        "name": "PAYMENT_SERVICE_GROUP",
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-service-group",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {
+        "name": "PAYMENT_SERVICE_GROUP",
+        "tags": [
+          "Kubernetes",
+          "Microservice"
+        ],
+        "entityTypes": [
+          "completeGroup",
+          "application"
+        ]
+      }
+    },
+    {
+      "id": "pod-status-payment-service-1",
+      "type": "aiops.ibm.com/insight-type/topology/statusId",
+      "details": {}
+    },
+    {
+      "id": "resource-payment-service-pod-1",
+      "type": "aiops.ibm.com/insight-type/topology/resource",
+      "details": {
+        "name": "payment-service-pod-1",
+        "uniqueId": "deviceId-9101"
+      }
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-16T10:01:10.000Z",
+  "lastStateChangeTime": "2026-03-16T10:01:20.000Z",
+  "links": [],
+  "owner": "-",
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": [
+    "story-payment-002"
+  ],
+  "resource": {
+    "name": "payment-service-pod-1",
+    "Customer": "Enterprise"
+  },
+  "sender": {
+    "type": "Webhook Connector",
+    "CP4AIOPSEnrichTTFlag": "1",
+    "name": "Kubernetes Monitoring"
+  },
+  "severity": 5,
+  "signature": "{Customer=Enterprise, name=payment-service-pod-1}-Pod CPU Saturation-",
+  "state": "open",
+  "summary": "Payment service pod CPU utilization exceeded 90 percent",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "tenant-payment",
+  "type": {
+    "classification": "Pod CPU Saturation",
+    "eventType": "problem"
+  }
+}
+
+---------------------------------use case 3: Alert 3 --------------------------------
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Enterprise, name=payment-service-pod-2}-Pod Readiness Failure-",
+  "details": {
+    "Customer": "Enterprise",
+    "Check": "Kubernetes Pod Readiness",
+    "Cluster Name": "PAYMENT K8S",
+    "SevOne Alert ID": "210003",
+    "SevOne Alert Type": "kubernetes",
+    "Occurrences": "1",
+    "Device Id": "9102",
+    "Device IP": "10.60.2.22",
+    "Device Name": "payment-service-pod-2",
+    "Group Name": "PAYMENT_SERVICE",
+    "Object Name": "Pod Readiness",
+    "ObjectID": "70103",
+    "Policy Name": "Pod Health Monitoring",
+    "Threshold Name": "Pod Readiness Failed"
+  },
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-16T10:02:20.000Z",
+  "id": "alert-payment-203",
+  "insights": [
+    {
+      "id": "00000202-a1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "payment-causal-policy",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "event-occurrence",
+      "type": "aiops.ibm.com/insight-type/deduplication-details",
+      "details": {
+        "lastProcessedEventOccurrenceTime": "2026-03-16T10:02:20Z"
+      }
+    },
+    {
+      "id": "alert-payment-203",
+      "type": "aiops.ibm.com/insight-type/golden-signal",
+      "details": {
+        "goldenSignal": "availability",
+        "typeGoldenSignal": "symptom"
+      }
+    },
+    {
+      "id": "alert-payment-203",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "story-payment-002",
+        "rank": 3,
+        "time": 0
+      }
+    },
+    {
+      "id": "payment-service-pod-2#c1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-service-group#t2",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/topological-group",
+      "details": {
+        "name": "PAYMENT_SERVICE_GROUP",
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-service-group",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {
+        "name": "PAYMENT_SERVICE_GROUP",
+        "tags": [
+          "Kubernetes",
+          "Microservice"
+        ],
+        "entityTypes": [
+          "completeGroup",
+          "application"
+        ]
+      }
+    },
+    {
+      "id": "pod-status-payment-service-2",
+      "type": "aiops.ibm.com/insight-type/topology/statusId",
+      "details": {}
+    },
+    {
+      "id": "resource-payment-service-pod-2",
+      "type": "aiops.ibm.com/insight-type/topology/resource",
+      "details": {
+        "name": "payment-service-pod-2",
+        "uniqueId": "deviceId-9102"
+      }
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-16T10:02:20.000Z",
+  "lastStateChangeTime": "2026-03-16T10:02:35.000Z",
+  "links": [],
+  "owner": "-",
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": [
+    "story-payment-002"
+  ],
+  "resource": {
+    "name": "payment-service-pod-2",
+    "Customer": "Enterprise"
+  },
+  "sender": {
+    "type": "Webhook Connector",
+    "CP4AIOPSEnrichTTFlag": "1",
+    "name": "Kubernetes Monitoring"
+  },
+  "severity": 5,
+  "signature": "{Customer=Enterprise, name=payment-service-pod-2}-Pod Readiness Failure-",
+  "state": "open",
+  "summary": "Payment service pod readiness probe failed",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "tenant-payment",
+  "type": {
+    "classification": "Pod Readiness Failure",
+    "eventType": "problem"
+  }
+}
+
+----------------------------Use case 3 Alert 4 ------------------------------------------------------
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Enterprise, name=payment-api-pod-1}-API Request Timeout-",
+  "details": {
+    "Customer": "Enterprise",
+    "Check": "HTTP API Latency",
+    "Cluster Name": "PAYMENT K8S",
+    "SevOne Alert ID": "210004",
+    "SevOne Alert Type": "application",
+    "Occurrences": "1",
+    "Device Id": "9103",
+    "Device IP": "10.60.3.14",
+    "Device Name": "payment-api-pod-1",
+    "Group Name": "PAYMENT_API",
+    "Object Name": "HTTP Endpoint",
+    "ObjectID": "70104",
+    "Policy Name": "API Performance Monitoring",
+    "Threshold Name": "API Timeout"
+  },
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-16T10:03:15.000Z",
+  "id": "alert-payment-204",
+  "insights": [
+    {
+      "id": "00000202-a2",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "payment-causal-policy",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "event-occurrence",
+      "type": "aiops.ibm.com/insight-type/deduplication-details",
+      "details": {
+        "lastProcessedEventOccurrenceTime": "2026-03-16T10:03:15Z"
+      }
+    },
+    {
+      "id": "alert-payment-204",
+      "type": "aiops.ibm.com/insight-type/golden-signal",
+      "details": {
+        "goldenSignal": "latency",
+        "typeGoldenSignal": "symptom"
+      }
+    },
+    {
+      "id": "alert-payment-204",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "story-payment-002",
+        "rank": 4,
+        "time": 0
+      }
+    },
+    {
+      "id": "payment-api-pod-1#c1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-api-group#t3",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/topological-group",
+      "details": {
+        "name": "PAYMENT_API_GROUP",
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "payment-api-group",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {
+        "name": "PAYMENT_API_GROUP",
+        "tags": [
+          "Kubernetes",
+          "Microservice",
+          "API"
+        ],
+        "entityTypes": [
+          "completeGroup",
+          "application"
+        ]
+      }
+    },
+    {
+      "id": "api-status-payment-api-1",
+      "type": "aiops.ibm.com/insight-type/topology/statusId",
+      "details": {}
+    },
+    {
+      "id": "resource-payment-api-pod-1",
+      "type": "aiops.ibm.com/insight-type/topology/resource",
+      "details": {
+        "name": "payment-api-pod-1",
+        "uniqueId": "deviceId-9103"
+      }
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-16T10:03:15.000Z",
+  "lastStateChangeTime": "2026-03-16T10:03:30.000Z",
+  "links": [],
+  "owner": "-",
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": [
+    "story-payment-002"
+  ],
+  "resource": {
+    "name": "payment-api-pod-1",
+    "Customer": "Enterprise"
+  },
+  "sender": {
+    "type": "Webhook Connector",
+    "CP4AIOPSEnrichTTFlag": "1",
+    "name": "Application Monitoring"
+  },
+  "severity": 5,
+  "signature": "{Customer=Enterprise, name=payment-api-pod-1}-API Request Timeout-",
+  "state": "open",
+  "summary": "Payment API requests experiencing timeout due to backend service degradation",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "tenant-payment",
+  "type": {
+    "classification": "API Timeout",
+    "eventType": "problem"
+  }
+}
+------------------------------Use case 3 Alert 5------------------------------------
+{
+  "acknowledged": true,
+  "deduplicationKey": "{Customer=Enterprise, name=api-gateway-pod-1}-Upstream Service Failure-",
+  "details": {
+    "Customer": "Enterprise",
+    "Check": "API Gateway Upstream Connectivity",
+    "Cluster Name": "PAYMENT K8S",
+    "SevOne Alert ID": "210005",
+    "SevOne Alert Type": "application",
+    "Occurrences": "1",
+    "Device Id": "9104",
+    "Device IP": "10.60.4.12",
+    "Device Name": "api-gateway-pod-1",
+    "Group Name": "API_GATEWAY",
+    "Object Name": "Upstream Service",
+    "ObjectID": "70105",
+    "Policy Name": "API Gateway Monitoring",
+    "Threshold Name": "Upstream Timeout"
+  },
+  "EnrichmentDetails": {
+    "ImpactInvOper": "1"
+  },
+  "eventCount": 1,
+  "expirySeconds": 0,
+  "firstOccurrenceTime": "2026-03-16T10:04:10.000Z",
+  "id": "alert-payment-205",
+  "insights": [
+    {
+      "id": "00000202-a3",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "payment-causal-policy",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "event-occurrence",
+      "type": "aiops.ibm.com/insight-type/deduplication-details",
+      "details": {
+        "lastProcessedEventOccurrenceTime": "2026-03-16T10:04:10Z"
+      }
+    },
+    {
+      "id": "alert-payment-205",
+      "type": "aiops.ibm.com/insight-type/golden-signal",
+      "details": {
+        "goldenSignal": "latency",
+        "typeGoldenSignal": "symptom"
+      }
+    },
+    {
+      "id": "alert-payment-205",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "story-payment-002",
+        "rank": 5,
+        "time": 0
+      }
+    },
+    {
+      "id": "api-gateway-pod-1#c1",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "api-gateway-group#t4",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/topological-group",
+      "details": {
+        "name": "API_GATEWAY_GROUP",
+        "policyId": "payment-topology-policy"
+      }
+    },
+    {
+      "id": "api-gateway-group",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {
+        "name": "API_GATEWAY_GROUP",
+        "tags": [
+          "Kubernetes",
+          "Microservice",
+          "Gateway"
+        ],
+        "entityTypes": [
+          "completeGroup",
+          "application"
+        ]
+      }
+    },
+    {
+      "id": "gateway-status-api-gateway-1",
+      "type": "aiops.ibm.com/insight-type/topology/statusId",
+      "details": {}
+    },
+    {
+      "id": "resource-api-gateway-pod-1",
+      "type": "aiops.ibm.com/insight-type/topology/resource",
+      "details": {
+        "name": "api-gateway-pod-1",
+        "uniqueId": "deviceId-9104"
+      }
+    }
+  ],
+  "lastOccurrenceTime": "2026-03-16T10:04:10.000Z",
+  "lastStateChangeTime": "2026-03-16T10:04:25.000Z",
+  "links": [],
+  "owner": "-",
+  "relatedContextualStoryIds": [],
+  "relatedStoryIds": [
+    "story-payment-002"
+  ],
+  "resource": {
+    "name": "api-gateway-pod-1",
+    "Customer": "Enterprise"
+  },
+  "sender": {
+    "type": "Webhook Connector",
+    "CP4AIOPSEnrichTTFlag": "1",
+    "name": "API Gateway Monitoring"
+  },
+  "severity": 5,
+  "signature": "{Customer=Enterprise, name=api-gateway-pod-1}-Upstream Service Failure-",
+  "state": "open",
+  "summary": "API Gateway experiencing upstream timeout while calling payment API service",
+  "suppressed": false,
+  "team": "-",
+  "tenantId": "tenant-payment",
+  "type": {
+    "classification": "Upstream Service Failure",
+    "eventType": "problem"
+  }
+}
+---------------------------Use case 3 incident 1------------------------------
+{
+  "id": "incident-payment-002",
+  "state": "unassigned",
+  "priority": 1,
+  "title": "Payment Service Degradation due to Database Latency",
+  "createdBy": "system",
+  "lastChangedTime": "2026-03-16T10:04:10.000Z",
+  "description": "Cascading failure detected across payment microservices starting from payment-db latency impacting payment-service, payment-api, and api-gateway.",
+  "owner": "-",
+  "team": "-",
+  "insights": [
+    {
+      "id": "insight-payment-002-union",
+      "type": "aiops.ibm.com/insight-type/relationship/causal-union",
+      "details": {
+        "policyId": "policy-payment-002",
+        "subsumedUnions": []
+      }
+    },
+    {
+      "id": "insight-payment-002-pc-1",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "alert-payment-201",
+        "rank": 1,
+        "time": 0
+      }
+    },
+    {
+      "id": "insight-payment-002-pc-2",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "alert-payment-202",
+        "rank": 2,
+        "time": 0
+      }
+    },
+    {
+      "id": "insight-payment-002-pc-3",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "alert-payment-203",
+        "rank": 3,
+        "time": 0
+      }
+    },
+    {
+      "id": "insight-payment-002-pc-4",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "alert-payment-204",
+        "rank": 4,
+        "time": 0
+      }
+    },
+    {
+      "id": "insight-payment-002-pc-5",
+      "type": "aiops.ibm.com/insight-type/probable-cause",
+      "source": "aiops.ibm.com/insight-source/probable-cause",
+      "details": {
+        "id": "alert-payment-205",
+        "rank": 5,
+        "time": 0
+      }
+    },
+    {
+      "id": "payment-service#causal",
+      "type": "aiops.ibm.com/insight-type/relationship/causal",
+      "source": "aiops.ibm.com/insight-source/relationship/causal/custom",
+      "details": {
+        "policyId": "policy-payment-causal-002"
+      }
+    },
+    {
+      "id": "PAYMENT_APPLICATION_GROUP",
+      "type": "aiops.ibm.com/insight-type/topology/group",
+      "details": {
+        "name": "PAYMENT_APPLICATION_GROUP",
+        "tags": [
+          "Kubernetes",
+          "Microservice"
+        ],
+        "entityTypes": [
+          "completeGroup",
+          "application"
+        ]
+      }
+    }
+  ],
+  "alertIds": [
+    "alert-payment-201",
+    "alert-payment-202",
+    "alert-payment-203",
+    "alert-payment-204",
+    "alert-payment-205"
+  ],
+  "contextualAlertIds": [],
+  "createdTime": "2026-03-16T10:00:00.000Z",
+  "timeline": [
+    {
+      "id": "timeline-payment-002-created",
+      "createdTime": "2026-03-16T10:00:00.000Z",
+      "content": {},
+      "type": "created"
+    },
+    {
+      "id": "timeline-payment-002-alert-1",
+      "createdTime": "2026-03-16T10:00:00.000Z",
+      "content": {
+        "alertid": "alert-payment-201",
+        "timeAdded": "2026-03-16T10:00:00.000Z",
+        "summary": "Payment database experiencing high latency",
+        "severity": 5
+      },
+      "type": "alertadded"
+    },
+    {
+      "id": "timeline-payment-002-alert-2",
+      "createdTime": "2026-03-16T10:01:10.000Z",
+      "content": {
+        "alertid": "alert-payment-202",
+        "timeAdded": "2026-03-16T10:01:10.000Z",
+        "summary": "Payment service pod CPU utilization above threshold",
+        "severity": 5
+      },
+      "type": "alertadded"
+    },
+    {
+      "id": "timeline-payment-002-alert-3",
+      "createdTime": "2026-03-16T10:02:20.000Z",
+      "content": {
+        "alertid": "alert-payment-203",
+        "timeAdded": "2026-03-16T10:02:20.000Z",
+        "summary": "Payment service pod readiness probe failed",
+        "severity": 5
+      },
+      "type": "alertadded"
+    },
+    {
+      "id": "timeline-payment-002-alert-4",
+      "createdTime": "2026-03-16T10:03:15.000Z",
+      "content": {
+        "alertid": "alert-payment-204",
+        "timeAdded": "2026-03-16T10:03:15.000Z",
+        "summary": "Payment API requests experiencing timeout",
+        "severity": 5
+      },
+      "type": "alertadded"
+    },
+    {
+      "id": "timeline-payment-002-alert-5",
+      "createdTime": "2026-03-16T10:04:10.000Z",
+      "content": {
+        "alertid": "alert-payment-205",
+        "timeAdded": "2026-03-16T10:04:10.000Z",
+        "summary": "API Gateway experiencing upstream service timeout",
+        "severity": 5
+      },
+      "type": "alertadded"
+    }
+  ]
+}
+---------------------------------------Use case 3 END----------------------
