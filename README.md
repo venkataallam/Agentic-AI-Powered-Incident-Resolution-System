@@ -13,8 +13,8 @@
 
 ## What This Does
 
-An **Agentic AI-powered AIOps platform** that automates and governs the entire incident lifecycle — from detection and root cause analysis to remediation, validation, and continuous learning — while maintaining strict human-in-the-loop controls for enterprise trust and safety.
-
+An **Agentic AI-powered AIOps platform** that automates and governs the entire incident lifecycle — from detection and root cause analysis to remediation, validation, and continuous learning — while maintaining strict human-in-the-loop controls for enterprise trust and safety. 
+This project transforms IT operations from reactive troubleshooting → intelligent, self-improving automation.
 The platform integrates **IBM Cloud Pak for AIOps**, **GPT OSS 120B via Groq**, **Watson Orchestrate**, **ServiceNow**, **Microsoft Teams**, and **Cisco Catalyst 8000** into a cohesive, production-grade system capable of resolving complex multi-domain incidents across network, infrastructure, platform, and application layers.
 
 ### Key Characteristics
@@ -38,8 +38,6 @@ The platform integrates **IBM Cloud Pak for AIOps**, **GPT OSS 120B via Groq**, 
 ---
 
 ## Architecture Overview
-
-![Architecture](https://raw.githubusercontent.com/venkataallam/Agentic-AI-Powered-Incident-Resolution-System/main/docs/architecture.png)
 
 ```
 Hackathon.txt
