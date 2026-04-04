@@ -39,6 +39,8 @@ The platform integrates **IBM Cloud Pak for AIOps**, **GPT OSS 120B via Groq**, 
 
 ## Architecture Overview
 
+![Architecture](docs/componentflow.png)
+
 ```
 Hackathon.txt
     │
