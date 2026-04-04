@@ -39,6 +39,8 @@ The platform integrates **IBM Cloud Pak for AIOps**, **GPT OSS 120B via Groq**, 
 
 ## Architecture Overview
 
+![Architecture](https://raw.githubusercontent.com/venkataallam/Agentic-AI-Powered-Incident-Resolution-System/main/docs/architecture.png)
+
 ```
 Hackathon.txt
     │
@@ -128,8 +130,9 @@ Run 2 (warm):   Agent 2 finds RESOLVED KB entry
 ├── docs/
 │   ├── architecture.png              Production agent flow diagram
 │   ├── component_flow.png            Architecture component flow
-│   ├── Orchestrate_Incident_Resolution_Manager_behavior.txt
-│   └── Orchestrate_rca_agent_behavior.txt
+│   ├── Orchestrate_Incident_Resolution_Manager_behavior.txt  AIOps_Incident_Resolution_Manager Agent behavior instructions
+│   └── Orchestrate_rca_agent_behavior.txt    AIOps_RCA_Agent behavior instructions
+│   └── production_roadmap.md.txt     Product roadmap
 │
 ├── Hackathon.txt                     CP4AIOps export — demo input for Agent 1
 ├── .env.example                      Environment variable template
@@ -429,5 +432,4 @@ See `docs/` for:
 See `docs/production_roadmap.md` for the full production evolution plan including CMDB integration, multi-tenant support, multi-OS runbook templates, and automated KB resolved marking.
 
 ---
-
 *Pellera Hackathon 2026 · Powered by IBM*
